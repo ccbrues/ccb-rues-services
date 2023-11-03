@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<springProperty name="nombre"
+		source="spring.application.name"></springProperty>
+	<springProfile name="dev">
+		<property name="entorno" value="dev"></property>
+	</springProfile>
+	<springProfile name="prod">
+		<property name="entorno" value="prod"></property>
+	</springProfile>
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level)
+				%green(${nombre}) %yellow(${entorno}) %magenta([%thread]) ${entorno}
+				%logger{36}.%M
+				%msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/logs/ccb-rues-services.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>/logs/ccb-rues-services.%d{yyyy-MM-dd}.%i.log.zip
+			</fileNamePattern>
+			<maxFileSize>50MB</maxFileSize>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level)
+				%green(${nombre}) %yellow(${entorno}) %magenta([%thread]) ${entorno}
+				%logger{36}.%M
+				%msg%n</pattern>
+		</encoder>
+	</appender>
+	<springProfile name="dev">
+		<root level="ERROR">
+			<appender-ref ref="STDOUT" />
+		</root>
+		<root level="WARN">
+			<appender-ref ref="STDOUT" />
+		</root>
+		<root level="INFO">
+			<appender-ref ref="STDOUT" />
+		</root>
+	</springProfile>
+	<springProfile name="!dev">
+		<root level="ERROR">
+			<appender-ref ref="FILE" />
+		</root>
+		<root level="WARN">
+			<appender-ref ref="FILE" />
+		</root>
+		<root level="INFO">
+			<appender-ref ref="FILE" />
+		</root>
+	</springProfile>
+</configuration>
