@@ -1,0 +1,9 @@
+com:
+  camaradirecta:
+    app:
+      rues:
+        token:
+          username: RUESBucaramanga
+          password: Webapi2017*
+          grant_type: password
+          url: https://pruebasruesapi.rues.org.co/Token
