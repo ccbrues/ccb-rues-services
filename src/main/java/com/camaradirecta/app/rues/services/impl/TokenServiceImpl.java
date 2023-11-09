@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.camaradirecta.app.rues.dtos.ResponseDto;
 import com.camaradirecta.app.rues.services.ITokenService;
+import com.camaradirecta.app.rues.util.Constantes;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -25,8 +26,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class TokenServiceImpl implements ITokenService{
-	
-	private static final String CONTENTTYPE = "Content-Type";
 	
 	@Value("${com.camaradirecta.app.rues.token.username}")
 	private String username;
@@ -51,7 +50,7 @@ public class TokenServiceImpl implements ITokenService{
 		log.info("Inicio metodo getToken ");
 		try {
 			HttpHeaders headers = new HttpHeaders();
-			headers.add(CONTENTTYPE, strContenttype);
+			headers.add(Constantes.CONTENTTYPE, strContenttype);
 			
 			MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
 			params.add("username", this.username);

@@ -7,3 +7,5 @@ com:
           password: Webapi2017*
           grant_type: password
           url: https://pruebasruesapi.rues.org.co/Token
+        RR18N:
+          url-palabra-clave: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarPalabraClave

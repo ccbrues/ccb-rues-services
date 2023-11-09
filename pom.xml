@@ -90,6 +90,10 @@
 			<version>1.4.2.Final</version>
 		</dependency>
 		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.internetitem</groupId>
 			<artifactId>logback-elasticsearch-appender</artifactId>
 			<version>1.6</version>
