@@ -23,4 +23,7 @@ com:
           url-solicitud-actualiza-estado: https://pruebasruesapi.rues.org.co/api/Estados/solicitudActualizacionEstado
         RR31N:
           url-reporte-contratos: https://pruebasruesapi.rues.org.co/api/Proponente/ReporteContratos
+        RR09N:
+          url-proponente-nit: https://pruebasruesapi.rues.org.co/api/Proponente/ConsultaProponenteNit
+          url-radicar-noticia-proponente: https://pruebasruesapi.rues.org.co/api/Proponente/radicarNoticiasProponente
           
