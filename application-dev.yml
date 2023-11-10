@@ -26,4 +26,6 @@ com:
         RR09N:
           url-proponente-nit: https://pruebasruesapi.rues.org.co/api/Proponente/ConsultaProponenteNit
           url-radicar-noticia-proponente: https://pruebasruesapi.rues.org.co/api/Proponente/radicarNoticiasProponente
+        RR30N:
+          url-radicar-registro-proponente: https://pruebasruesapi.rues.org.co/api/Proponente/ActualizarProponente
           

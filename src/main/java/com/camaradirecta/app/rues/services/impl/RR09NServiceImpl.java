@@ -32,10 +32,10 @@ public class RR09NServiceImpl implements IRR09N {
 
 	private String strContenttype = "application/json";
 	
-	@Value("${com.camaradirecta.app.rues.RR18N.url-proponente-nit}")
+	@Value("${com.camaradirecta.app.rues.RR09N.url-proponente-nit}")
 	private String urlProponenteNit;
 	
-	@Value("${com.camaradirecta.app.rues.RR18N.url-radicar-noticia-proponente}")
+	@Value("${com.camaradirecta.app.rues.RR09N.url-radicar-noticia-proponente}")
 	private String urlRadicarNoticia;
 	
 	@NonNull
