@@ -1,7 +1,5 @@
 package com.camaradirecta.app.rues.response;
 
-import java.util.ArrayList;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -18,4 +16,6 @@ import lombok.NoArgsConstructor;
 public class ResponseGeneral<T> {
 
 	private T respuesta;
+	
+	private T registros;
 }
