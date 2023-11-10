@@ -13,4 +13,14 @@ com:
           url-consultar-matricula: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarMatricula
           url-consultar-homonimia: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarHomonimia
           url-consultar-numero-identificacion: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarNumeroIdentificacion
+        MR01D: 
+          url-solicitud-liquidacion: https://pruebasruesapi.rues.org.co/api/Liquidacion/solicitudLiquidacion
+        MR02N:
+          url-solicitud-radicacion: https://pruebasruesapi.rues.org.co/api/Radicacion/solicitudRadicacion
+        RR04N:
+          url-solicitud-certificado: https://pruebasruesapi.rues.org.co/api/Certificado/solicitudCertificado
+        MR03N:
+          url-solicitud-actualiza-estado: https://pruebasruesapi.rues.org.co/api/Estados/solicitudActualizacionEstado
+        RR31N:
+          url-reporte-contratos: https://pruebasruesapi.rues.org.co/api/Proponente/ReporteContratos
           

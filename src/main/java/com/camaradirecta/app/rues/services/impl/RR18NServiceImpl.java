@@ -53,7 +53,6 @@ public class RR18NServiceImpl implements IRR18N{
 	@Value("${com.camaradirecta.app.rues.RR18N.url-consultar-numero-identificacion}")
 	private String urlConsultarNumeroIdentificacion;
 	
-	
 	@NonNull
 	RestTemplate restTemplate = new RestTemplate();
 	
