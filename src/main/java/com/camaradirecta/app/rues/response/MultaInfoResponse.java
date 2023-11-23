@@ -48,6 +48,8 @@ public class MultaInfoResponse implements Serializable {
     public String hora_radicacion_rue;
     public String codigo_error;
     public String mensaje_error;
+    public String fecha_respuesta;
+    public String hora_respuesta;
     
     /**
 	 * 
