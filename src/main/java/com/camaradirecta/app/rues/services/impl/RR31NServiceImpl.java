@@ -11,11 +11,13 @@ import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
 import com.camaradirecta.app.rues.dtos.ContratoInfoDTO;
+import com.camaradirecta.app.rues.dtos.HistoricoProponenteInfoDTO;
 import com.camaradirecta.app.rues.dtos.MultaInfoDTO;
 import com.camaradirecta.app.rues.dtos.ResponseDto;
 import com.camaradirecta.app.rues.dtos.SancionesInfoDTO;
 import com.camaradirecta.app.rues.exceptions.ProcessException;
 import com.camaradirecta.app.rues.response.ContratoInfoResponse;
+import com.camaradirecta.app.rues.response.HistoricoProponenteInfoResponse;
 import com.camaradirecta.app.rues.response.MultaInfoResponse;
 import com.camaradirecta.app.rues.response.ResponseGeneral;
 import com.camaradirecta.app.rues.response.SancionesInfoResponse;
@@ -42,6 +44,9 @@ public class RR31NServiceImpl implements IRR31N{
 	
 	@Value("${com.camaradirecta.app.rues.RR31N.url-reporte-sanciones}")
 	private String urlReporteSanciones;
+	
+	@Value("${com.camaradirecta.app.rues.RR31N.url-historico-proponente}")
+	private String urlHistoricoProponente;
 	
 	@NonNull
 	RestTemplate restTemplate = new RestTemplate();
@@ -126,6 +131,33 @@ public class RR31NServiceImpl implements IRR31N{
 			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.BAD_REQUEST);
 		} catch (Exception e) {
 			log.error("Error reporteMultas {} ", e.getLocalizedMessage());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
+	public ResponseEntity<ResponseDto> consultaHistoriaProponente(HistoricoProponenteInfoDTO historicoProponenteInfoDTO) {
+		log.info("Inicio metodo consultaHistoriaProponente {}", historicoProponenteInfoDTO.numero_interno);
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.add(Constantes.CONTENTTYPE, strContenttype);
+			headers.set(Constantes.AUTHORIZATION, this.getToken());
+			HttpEntity<HistoricoProponenteInfoDTO> httpEntity = new HttpEntity<>(historicoProponenteInfoDTO, headers);
+			ResponseGeneral resp = restTemplate.postForObject(urlHistoricoProponente, httpEntity, ResponseGeneral.class);
+			ObjectMapper mapper = new ObjectMapper();
+			HistoricoProponenteInfoResponse historicoProponenteInfoResponse = mapper.convertValue(resp.getRespuesta(), HistoricoProponenteInfoResponse.class);
+			log.info("Fin metodo consultaHistoriaProponente {}", mapper.writeValueAsString(historicoProponenteInfoResponse));
+			return new ResponseEntity<>(ResponseDto.builder().response(historicoProponenteInfoResponse).success(true)
+					.message(HttpStatus.OK.name()).code(HttpStatus.OK.value()).build(), HttpStatus.OK);
+		}catch (RestClientResponseException e) {
+			log.error("Error consultaHistoriaProponente {},{}", e.getLocalizedMessage(), e.getResponseBodyAsString());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()) , HttpStatus.CONFLICT);
+		} catch (RestClientException e) {
+			log.error("Error consultaHistoriaProponente {}", e.getLocalizedMessage());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			log.error("Error consultaHistoriaProponente {} ", e.getLocalizedMessage());
 			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

@@ -8,7 +8,6 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
       
 server:
-  port: ${PORT:11102}
   tomcat:
     relaxed-path-chars: <,>,[,\,],^,`,{,|,}
     relaxed-query-chars: <,>,[,\,],^,`,{,|,}

@@ -32,12 +32,19 @@ public class SancionesInfoResponse implements Serializable{
     public String fundamento_legal;
     public String condicion_incumplimiento;
     public String cod_estado;
+    public String numero_acto_suspension;
+    public String fecha_acto_suspension;
+    public String numero_acto_confirmacion;
+    public String fecha_acto_confirmacion;
+    public String numero_acto_revocacion;
+    public String fecha_acto_revocacion;
+    public String observaciones;
     public String codigo_camara;
     public String codigo_libro_registro;
     public String numero_inscripcion_libro;
     public String fecha_inscripcion_camara;
     public String numero_contrato_secop;
-    public int numero_radicacion_rue;
+    public Integer numero_radicacion_rue;
     public String fecha_radicacion_rue;
     public String hora_radicacion_rue;
     public String fecha_registro_inicial_rue;
@@ -45,6 +52,7 @@ public class SancionesInfoResponse implements Serializable{
     public String mensaje_error;
     public String fecha_respuesta;
     public String hora_respuesta;
+    
     
     /**
 	 * 

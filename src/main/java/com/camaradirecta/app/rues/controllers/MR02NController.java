@@ -10,10 +10,6 @@ import com.camaradirecta.app.rues.dtos.RadicacionInfoDTO;
 import com.camaradirecta.app.rues.dtos.ResponseDto;
 import com.camaradirecta.app.rues.services.IMR02N;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
@@ -25,13 +21,9 @@ public class MR02NController {
 	@NonNull
 	private final IMR02N serviceIMR02N;
 	
-	@Operation(summary = "Servicio que permite Radicar una transaccion RUES", description = "Retorna un mensaje", responses = {
-			@ApiResponse(responseCode = "200", description = "Operación Exitosa", content = @Content(schema = @Schema(implementation = ResponseDto.class))),
-			@ApiResponse(responseCode = "401", description = "datos invalidos"),
-			@ApiResponse(responseCode = "404", description = "No existe mensaje"),
-			@ApiResponse(responseCode = "409", description = "Mensaje de error no controlado") })
+
 	@PostMapping(path = "/solicitudRadicacion")
-	public ResponseEntity<ResponseDto> consultarPalabraClave(@RequestBody RadicacionInfoDTO radicacionInfoDTO) {
+	public ResponseEntity<ResponseDto> solicitudRadicacion(@RequestBody RadicacionInfoDTO radicacionInfoDTO) {
 		return this.serviceIMR02N.solicitudRadicacion(radicacionInfoDTO);
 	}
 

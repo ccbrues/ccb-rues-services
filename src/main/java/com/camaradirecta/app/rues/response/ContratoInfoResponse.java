@@ -13,7 +13,7 @@ public class ContratoInfoResponse {
 	
 	public String numero_interno;
     public String usuario;
-    public int cod_indicador_envio;
+    public Integer cod_indicador_envio;
     public String nit_proponente;
     public String dv_proponente;
     public String nit_entidad;
@@ -31,16 +31,16 @@ public class ContratoInfoResponse {
     public String fecha_terminacion_ejecucion;
     public String fecha_terminacion;
     public String fecha_liquidacion;
-    public int valor_contrato;
-    public int valor_pagado;
-    public int cod_estado_contrato;
+    public Integer valor_contrato;
+    public Integer valor_pagado;
+    public String cod_estado_contrato;
     public String objeto_contrato;
-    public int cod_tipo_contratista;
+    public String cod_tipo_contratista;
     public String motivo_terminacion_anticipada;
-    public int fecha_terminacion_anticipada;
+    public String fecha_terminacion_anticipada;
     public String motivo_cesion;
     public String fecha_cesion;
-    public int cod_actividad;
+    public Integer cod_actividad;
     public ArrayList<ContratoCiiuInfoResponse> actividad_ciiu;
     public ArrayList<ContratoUnspscInfoResponse> clasificacion_unspsc;
     public String observaciones;
