@@ -6,30 +6,30 @@ com:
           username: RUESBucaramanga
           password: Webapi2017*
           grant_type: password
-          url: https://pruebasruesapi.rues.org.co/Token
+          url: https://ruesapi.rues.org.co/Token
         RR18N:
-          url-palabra-clave: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarPalabraClave
-          url-consultar-nombre: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarNombre
-          url-consultar-matricula: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarMatricula
-          url-consultar-homonimia: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarHomonimia
-          url-consultar-numero-identificacion: https://pruebasruesapi.rues.org.co/api/ConsultaEntidades/consultarNumeroIdentificacion
+          url-palabra-clave: https://ruesapi.rues.org.co/api/ConsultaEntidades/consultarPalabraClave
+          url-consultar-nombre: https://ruesapi.rues.org.co/api/ConsultaEntidades/consultarNombre
+          url-consultar-matricula: https://ruesapi.rues.org.co/api/ConsultaEntidades/consultarMatricula
+          url-consultar-homonimia: https://ruesapi.rues.org.co/api/ConsultaEntidades/consultarHomonimia
+          url-consultar-numero-identificacion: https://ruesapi.rues.org.co/api/ConsultaEntidades/consultarNumeroIdentificacion
         MR01D: 
-          url-solicitud-liquidacion: https://pruebasruesapi.rues.org.co/api/Liquidacion/solicitudLiquidacion
+          url-solicitud-liquidacion: https://ruesapi.rues.org.co/api/Liquidacion/solicitudLiquidacion
         MR02N:
-          url-solicitud-radicacion: https://pruebasruesapi.rues.org.co/api/Radicacion/solicitudRadicacion
+          url-solicitud-radicacion: https://ruesapi.rues.org.co/api/Radicacion/solicitudRadicacion
         RR04N:
-          url-solicitud-certificado: https://pruebasruesapi.rues.org.co/api/Certificado/solicitudCertificado
+          url-solicitud-certificado: https://ruesapi.rues.org.co/api/Certificado/solicitudCertificado
         MR03N:
-          url-solicitud-actualiza-estado: https://pruebasruesapi.rues.org.co/api/Estados/solicitudActualizacionEstado
+          url-solicitud-actualiza-estado: https://ruesapi.rues.org.co/api/Estados/solicitudActualizacionEstado
         RR31N:
-          url-reporte-contratos: https://pruebasruesapi.rues.org.co/api/Proponente/ReporteContratos
-          url-reporte-multas: https://pruebasruesapi.rues.org.co/api/Proponente/ReporteMultas
-          url-reporte-sanciones: https://pruebasruesapi.rues.org.co/api/Proponente/ReporteSanciones
-          url-historico-proponente: https://pruebasruesapi.rues.org.co/api/Proponente/v2/consultaHistoriaProponente
+          url-reporte-contratos: https://ruesapi.rues.org.co/api/Proponente/ReporteContratos
+          url-reporte-multas: https://ruesapi.rues.org.co/api/Proponente/ReporteMultas
+          url-reporte-sanciones: https://ruesapi.rues.org.co/api/Proponente/ReporteSanciones
+          url-historico-proponente: https://ruesapi.rues.org.co/api/Proponente/v2/consultaHistoriaProponente
         RR09N:
-          url-proponente-nit: https://pruebasruesapi.rues.org.co/api/Proponente/ConsultaProponenteNit
-          url-radicar-noticia-proponente: https://pruebasruesapi.rues.org.co/api/Proponente/radicarNoticiasProponente
+          url-proponente-nit: https://ruesapi.rues.org.co/api/Proponente/ConsultaProponenteNit
+          url-radicar-noticia-proponente: https://ruesapi.rues.org.co/api/Proponente/radicarNoticiasProponente
         RR30N:
-          url-radicar-registro-proponente: https://pruebasruesapi.rues.org.co/api/Proponente/ActualizarProponente
+          url-radicar-registro-proponente: https://ruesapi.rues.org.co/api/Proponente/ActualizarProponente
           
       
