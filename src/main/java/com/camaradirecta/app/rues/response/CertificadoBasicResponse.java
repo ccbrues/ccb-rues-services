@@ -12,9 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CertificadoBasicResponse implements Serializable{
 
-	public String fecha_respuesta;
-    public String hora_respuesta;
-    public String numero_interno;
+	public String numero_interno;
     public String usuario;
     public String camara_receptora;
     public String camara_responsable;
@@ -36,6 +34,8 @@ public class CertificadoBasicResponse implements Serializable{
     public String codigo_error;
     public String mensaje_error;
     public String firma_digital;
+    public String fecha_respuesta;
+    public String hora_respuesta;
     
 	/**
 	 * 

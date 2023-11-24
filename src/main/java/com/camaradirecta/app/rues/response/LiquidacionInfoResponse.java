@@ -21,7 +21,7 @@ public class LiquidacionInfoResponse implements Serializable{
     public String origen_documento;
     public String fecha_documento;
     public String estado;
-    public ArrayList<Object> servicios;
+    public ArrayList<LiquidacionDetalleResponse> servicios;
     public int empleados;
     public int indicador_beneficio;
     public String firma_digital;
