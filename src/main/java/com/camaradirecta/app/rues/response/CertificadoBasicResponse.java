@@ -29,6 +29,8 @@ public class CertificadoBasicResponse implements Serializable{
     public String fecha_generado;
     public String hora_generado;
     public int caracteres_por_linea;
+    public ArrayList<String> link_certificado;
+    public String numero_unico_consulta;
     public ArrayList<String> texto_certificado;
     public String firma_mecanica;
     public String codigo_error;

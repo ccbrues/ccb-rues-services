@@ -18,6 +18,7 @@ import com.camaradirecta.app.rues.response.ResponseGeneral;
 import com.camaradirecta.app.rues.services.IMR03N;
 import com.camaradirecta.app.rues.util.Constantes;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -43,7 +44,7 @@ private String strContenttype = "application/json";
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> solicitudActualizacionEstado(
 			ActualizacionEstadoInfoDTO actualizacionEstadoInfoDTO) {
-		log.info("Inicio metodo solicitudActualizacionEstado {}", actualizacionEstadoInfoDTO.numero_interno);
+		log.info("Inicio metodo solicitudActualizacionEstado {}", new Gson().toJson(actualizacionEstadoInfoDTO));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);

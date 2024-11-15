@@ -20,6 +20,7 @@ import com.camaradirecta.app.rues.response.ResponseGeneral;
 import com.camaradirecta.app.rues.services.IRR09N;
 import com.camaradirecta.app.rues.util.Constantes;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -44,9 +45,10 @@ public class RR09NServiceImpl implements IRR09N {
 	@NonNull
 	TokenServiceImpl tokenServiceImpl;
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public ResponseEntity<ResponseDto> consultarProponenteNit(ProponenteNitInfoDTO proponenteNitInfo) {
-		log.info("Inicio metodo consultarProponenteNit ");
+		log.info("Inicio metodo consultarProponenteNit {} ", new Gson().toJson(proponenteNitInfo));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
@@ -70,19 +72,18 @@ public class RR09NServiceImpl implements IRR09N {
 		}
 	}
 	
+	
 	@Override
 	public ResponseEntity<ResponseDto> radicarNoticiaProponente(NoticiaProponenteInfoDTO noticiaProponenteInfo) {
-		log.info("Inicio metodo radicarNoticiaProponente ");
+		log.info("Inicio metodo radicarNoticiaProponente {}", new Gson().toJson(noticiaProponenteInfo));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
 			headers.set(Constantes.AUTHORIZATION, this.getToken());
 			HttpEntity<NoticiaProponenteInfoDTO> httpEntity = new HttpEntity<>(noticiaProponenteInfo, headers);
-			ResponseGeneral resp = restTemplate.postForObject(urlRadicarNoticia, httpEntity, ResponseGeneral.class);
-			ObjectMapper mapper = new ObjectMapper();
-			NoticiaProponenteInfoResponse noticiaProponenteInfoResponse = mapper.convertValue(resp.getRespuesta(), NoticiaProponenteInfoResponse.class);
+			NoticiaProponenteInfoResponse resp = restTemplate.postForObject(urlRadicarNoticia, httpEntity, NoticiaProponenteInfoResponse.class);
 			log.info("Fin metodo radicarNoticiaProponente ");
-			return new ResponseEntity<>(ResponseDto.builder().response(noticiaProponenteInfoResponse).success(true)
+			return new ResponseEntity<>(ResponseDto.builder().response(resp).success(true)
 					.message(HttpStatus.OK.name()).code(HttpStatus.OK.value()).build(), HttpStatus.OK);
 		}catch (RestClientResponseException e) {
 			log.error("Error radicarNoticiaProponente {},{}", e.getLocalizedMessage(), e.getResponseBodyAsString());

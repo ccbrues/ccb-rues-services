@@ -1,6 +1,8 @@
 com:
   camaradirecta:
     app:
+      ubicacion:
+        certificados: /opt/certificados-rues/
       rues:
         token:
           username: RUESBucaramanga
@@ -31,5 +33,10 @@ com:
           url-radicar-noticia-proponente: https://ruesapi.rues.org.co/api/Proponente/radicarNoticiasProponente
         RR30N:
           url-radicar-registro-proponente: https://ruesapi.rues.org.co/api/Proponente/ActualizarProponente
+        service:
+          url-service-MR03N: http://tomcat.camaradirecta.com:8080/registroWeb/service/MR03N.asmx
+          url-service-MR01D: http://tomcat.camaradirecta.com:8080/registroWeb/service/MR01D.asmx
+          url-service-MR02N: http://tomcat.camaradirecta.com:8080/registroWeb/service/MR02N.asmx
+          url-service-RR04N: http://tomcat.camaradirecta.com:8080/registroWeb/service/RR04N.asmx
           
       

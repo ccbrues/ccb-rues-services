@@ -17,6 +17,8 @@ import com.camaradirecta.app.rues.response.ResponseGeneral;
 import com.camaradirecta.app.rues.services.IRR30N;
 import com.camaradirecta.app.rues.util.Constantes;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,9 +39,10 @@ public class RR30NServiceImpl implements IRR30N {
 	@NonNull
 	TokenServiceImpl tokenServiceImpl;
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public ResponseEntity<ResponseDto> radicarRegistroProponente(RadicarProponenteInfoDTO radicarProponenteInfo) {
-		log.info("Inicio metodo radicarRegistroProponente {}", radicarProponenteInfo.numero_interno);
+		log.info("Inicio metodo radicarRegistroProponente {}", new Gson().toJson(radicarProponenteInfo));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);

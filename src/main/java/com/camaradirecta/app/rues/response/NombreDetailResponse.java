@@ -35,6 +35,12 @@ public class NombreDetailResponse implements Serializable {
     public String desc_estado_proponente;
     public int id_registro;
     public boolean indicador_rnt;
+    public String municipio_comercial;
+    public String direccion_comercial;
+    public String telefono_comercial;
+    public String ultimo_ano_renovado;
+    public String valor_activo_sin_ajuste;
+    public String afiliado;
     
 	/**
 	 * 
@@ -232,6 +238,7 @@ public class NombreDetailResponse implements Serializable {
 	public void setIndicador_rnt(boolean indicador_rnt) {
 		this.indicador_rnt = indicador_rnt;
 	}
+	
 
 	
 }

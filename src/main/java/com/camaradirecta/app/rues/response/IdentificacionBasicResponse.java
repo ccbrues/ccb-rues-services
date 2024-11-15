@@ -17,6 +17,7 @@ public class IdentificacionBasicResponse implements Serializable{
     public String codigo_clase_identificacion;
     public String numero_identificacion;
     public String digito_verificacion;
+    public Integer cantidad_registros;
     public ArrayList<IdentificacionDetailResponse> datos_respuesta;
     public String firma_digital;
     public String codigo_error;

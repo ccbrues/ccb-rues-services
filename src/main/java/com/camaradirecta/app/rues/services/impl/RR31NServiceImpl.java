@@ -24,6 +24,7 @@ import com.camaradirecta.app.rues.response.SancionesInfoResponse;
 import com.camaradirecta.app.rues.services.IRR31N;
 import com.camaradirecta.app.rues.util.Constantes;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -57,7 +58,7 @@ public class RR31NServiceImpl implements IRR31N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> reporteContratos(ContratoInfoDTO contratoInfoDTO) {
-		log.info("Inicio metodo reporteContratos {}", contratoInfoDTO.numero_interno);
+		log.info("Inicio metodo reporteContratos {}", new Gson().toJson(contratoInfoDTO));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);

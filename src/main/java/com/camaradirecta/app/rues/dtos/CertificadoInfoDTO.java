@@ -32,6 +32,8 @@ public class CertificadoInfoDTO implements Serializable{
     public String referencia_operacion;
     public String total_pagado;
     public String forma_pago;
+    public int caracteres_por_linea;
+    public ArrayList<String> link_certificado;
     public ArrayList<CertificadoServicioInfoDTO> servicios;
     public String numero_unico_consulta;
     public String estado;

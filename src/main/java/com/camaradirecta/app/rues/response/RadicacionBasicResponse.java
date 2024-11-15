@@ -38,6 +38,10 @@ public class RadicacionBasicResponse implements Serializable{
     public int empleados;
     public int indicador_beneficio;
     public String firma_digital;
+    protected String fecha_respuesta;
+    protected String hora_respuesta;
+    protected String codigo_error;
+    protected String mensaje_error;
     
 	/**
 	 * 

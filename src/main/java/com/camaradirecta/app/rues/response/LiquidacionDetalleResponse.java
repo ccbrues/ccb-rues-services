@@ -17,14 +17,15 @@ public class LiquidacionDetalleResponse implements Serializable{
 	public String orden_servicio;
 	public String orden_servicio_asociado;
 	public String nombre_base;
-	public double valor_base;
-	public double valor_liquidacion;
-	public double cantidad_servicio;
+	public Integer valor_base;
+	public Integer valor_liquidacion;
+	public Integer cantidad_servicio;
 	public String indicador_base;
+	public String indicador_renovacion;
 	public String matricula_servicio;
 	public String nombre_matriculado;
 	public String ano_renovacion;
-	public double valor_activos_sin_ajustes;
+	public Integer valor_activos_sin_ajustes;
     
 	/**
 	 * 

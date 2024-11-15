@@ -35,6 +35,16 @@ public class PalabraClaveBasicResponse implements Serializable{
     public String desc_estado_proponente;
     public int id_registro;
     public boolean indicador_rnt;
+    public String municipio_comercial;
+    public String codigo_dane_municipio;
+    public String direccion_comercial;
+    public String telefono_comercial;
+    public String ultimo_ano_renovado;
+    public String valor_activo_sin_ajuste;
+    public String activo_total;
+    public String afiliado;
+    public String extincion_dominio;
+    public String control_inactivacion_sipref;
     
 	/**
 	 * 

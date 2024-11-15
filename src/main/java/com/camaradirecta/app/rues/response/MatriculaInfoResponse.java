@@ -14,8 +14,8 @@ public class MatriculaInfoResponse implements Serializable{
 
 	public String numero_interno;
     public String usuario;
-    public String codigo_camara;
     public String matricula;
+    public Integer cantidad_registros;
     public ArrayList<MatriculaBasicResponse> datos_respuesta;
     public String codigo_error;
     public String mensaje_error;

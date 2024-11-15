@@ -35,6 +35,16 @@ public class IdentificacionDetailResponse implements Serializable {
     private String desc_estado_proponente;
     private long id_registro;
     private String indicador_rnt;
+    public String municipio_comercial;
+    public String codigo_dane_municipio;
+    public String direccion_comercial;
+    public String telefono_comercial;
+    public String ultimo_ano_renovado;
+    public String valor_activo_sin_ajuste;
+    public String activo_total;
+    public String afiliado;
+    public String extincion_dominio;
+    public String control_inactivacion_sipref;
     
 	/**
 	 * 
@@ -232,4 +242,6 @@ public class IdentificacionDetailResponse implements Serializable {
 	public void setIndicador_rnt(String indicador_rnt) {
 		this.indicador_rnt = indicador_rnt;
 	}
+	
+	
 }

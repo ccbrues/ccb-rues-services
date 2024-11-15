@@ -20,6 +20,7 @@ public class PalabraClaveInfoResponse {
 	public String numero_interno;
     public String usuario;
     public String razon_social;
+    public Integer cantidad_registros;
     public ArrayList<PalabraClaveBasicResponse> datos_respuesta;
     public String codigo_error;
     public String mensaje_error;

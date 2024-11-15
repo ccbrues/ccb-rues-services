@@ -18,6 +18,7 @@ import com.camaradirecta.app.rues.response.ResponseGeneral;
 import com.camaradirecta.app.rues.services.IMR02N;
 import com.camaradirecta.app.rues.util.Constantes;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -43,7 +44,7 @@ public class MR02NServiceImpl implements IMR02N {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> solicitudRadicacion(RadicacionInfoDTO radicacionInfoDTO) {
-		log.info("Inicio metodo solicitudRadicacion {}", radicacionInfoDTO.numero_interno);
+		log.info("Inicio metodo solicitudRadicacion {}", new Gson().toJson(radicacionInfoDTO));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);

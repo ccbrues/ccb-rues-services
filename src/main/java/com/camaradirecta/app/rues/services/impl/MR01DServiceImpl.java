@@ -40,7 +40,7 @@ public class MR01DServiceImpl implements IMR01D{
 
 	@Override
 	public ResponseEntity<ResponseDto> solicitudLiquidacion(LiquidacionInfoDTO liquidacionInfoDTO) {
-		log.info("Inicio metodo solicitudLiquidacion {}", liquidacionInfoDTO.numero_interno);
+		log.info("Inicio metodo solicitudLiquidacion {}", new Gson().toJson(liquidacionInfoDTO));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);

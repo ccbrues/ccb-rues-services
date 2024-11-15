@@ -26,6 +26,7 @@ import com.camaradirecta.app.rues.response.ResponseGeneral;
 import com.camaradirecta.app.rues.services.IRR18N;
 import com.camaradirecta.app.rues.util.Constantes;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -65,7 +66,7 @@ public class RR18NServiceImpl implements IRR18N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> consultarPalabraClave(PalabraClaveInfoDTO palabraClaveDto) {
-		log.info("Inicio metodo consultarPalabraClave {}", palabraClaveDto.numero_interno);
+		log.info("Inicio metodo consultarPalabraClave {}", new Gson().toJson(palabraClaveDto));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
@@ -95,7 +96,7 @@ public class RR18NServiceImpl implements IRR18N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> consultarNombre(NombreInfoDTO nombreInfoDTO) {
-		log.info("Inicio metodo consultarPalabraClave {}", nombreInfoDTO.getNumero_interno());
+		log.info("Inicio metodo consultarPalabraClave {}", new Gson().toJson(nombreInfoDTO));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
@@ -103,7 +104,7 @@ public class RR18NServiceImpl implements IRR18N{
 			HttpEntity<NombreInfoDTO> httpEntity = new HttpEntity<>(nombreInfoDTO, headers);
 			ResponseGeneral resp = restTemplate.postForObject(urlConsultarNombre, httpEntity, ResponseGeneral.class);
 			ObjectMapper mapper = new ObjectMapper();
-			NombreBasicResponse nombreBasicResponse = mapper.convertValue(resp.getRegistros(), NombreBasicResponse.class);
+			NombreBasicResponse nombreBasicResponse = mapper.convertValue(resp.getRespuesta(), NombreBasicResponse.class);
 			log.info("Fin metodo consultarNombre {}", mapper.writeValueAsString(nombreBasicResponse));
 			return new ResponseEntity<>(ResponseDto.builder().response(nombreBasicResponse).success(true)
 					.message(HttpStatus.OK.name()).code(HttpStatus.OK.value()).build(), HttpStatus.OK);
@@ -125,7 +126,7 @@ public class RR18NServiceImpl implements IRR18N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> consultarMatricula(MatriculaInfoDTO matriculaInfoDTO) {
-		log.info("Inicio metodo consultarMatricula {}", matriculaInfoDTO.getNumero_interno());
+		log.info("Inicio metodo consultarMatricula {}", new Gson().toJson(matriculaInfoDTO));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
@@ -155,7 +156,7 @@ public class RR18NServiceImpl implements IRR18N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> consultarHomonimia(HomonimiaInfoDTO homonimiaInfoDTO) {
-		log.info("Inicio metodo consultarHomonimia {}", homonimiaInfoDTO.getNumero_interno());
+		log.info("Inicio metodo consultarHomonimia {}", new Gson().toJson(homonimiaInfoDTO));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
@@ -185,7 +186,7 @@ public class RR18NServiceImpl implements IRR18N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> consultarNumeroIdentificacion(IdentificacionInfoDTO identificacionInfoDTO) {
-		log.info("Inicio metodo consultarNumeroIdentificacion {}", identificacionInfoDTO.getNumero_interno());
+		log.info("Inicio metodo consultarNumeroIdentificacion {}", new Gson().toJson(identificacionInfoDTO));
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
