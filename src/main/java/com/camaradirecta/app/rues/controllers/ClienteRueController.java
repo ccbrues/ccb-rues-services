@@ -13,10 +13,9 @@ import com.camaradirecta.app.rues.dtos.CertificadoInfoDTO;
 import com.camaradirecta.app.rues.dtos.LiquidacionInfoRueDTO;
 import com.camaradirecta.app.rues.dtos.RadicacionInfoDTO;
 import com.camaradirecta.app.rues.dtos.ResponseDto;
-import com.camaradirecta.app.rues.response.CertificadoRueResponse;
-import com.camaradirecta.app.rues.response.RueCertificadoResponse;
 import com.camaradirecta.app.rues.response.LiquidacionInfoResponse;
-import com.camaradirecta.app.rues.response.RadicacionRueResponse;
+import com.camaradirecta.app.rues.response.RadicacionInfoResponse;
+import com.camaradirecta.app.rues.response.RueCertificadoResponse;
 import com.camaradirecta.app.rues.services.IClienteRue;
 
 import lombok.NonNull;
@@ -59,7 +58,7 @@ public class ClienteRueController {
 	}
 	
 	@PostMapping(path = "/SOLRADIC")
-	public ResponseEntity<RadicacionRueResponse> solicitudRUERadicacion(@RequestBody RadicacionInfoDTO radicacionInfoDTO) {
+	public ResponseEntity<RadicacionInfoResponse> solicitudRUERadicacion(@RequestBody RadicacionInfoDTO radicacionInfoDTO) {
 		return this.clienteRue.solicitudRUERadicacion(radicacionInfoDTO);
 	}
 	

@@ -147,7 +147,7 @@ public class ClienteRueServiceImpl implements IClienteRue {
 	 *
 	 */
 	@Override
-	public ResponseEntity<RadicacionRueResponse> solicitudRUERadicacion(RadicacionInfoDTO radicacionInfoDTO) {
+	public ResponseEntity<RadicacionInfoResponse> solicitudRUERadicacion(RadicacionInfoDTO radicacionInfoDTO) {
 		log.info("Inicio metodo solicitudRUERadicacion {}", new Gson().toJson(radicacionInfoDTO));
 		try {
 			String usuario = radicacionInfoDTO.getUsuario();
@@ -180,8 +180,7 @@ public class ClienteRueServiceImpl implements IClienteRue {
 					numeroFactura, fechaPago, totalPagado, formaPago, empleados, indicadorBeneficio, salidas, servicios,
 					urlSolicitudRadicacionMR02N, error);
 			RadicacionInfoResponse liquidacionResponse = mappingLiquidacionRadicacionRespose(response);
-			RadicacionRueResponse respuestaRue = mappingRespuestaRue(liquidacionResponse,response);
-			return new ResponseEntity<>(respuestaRue, HttpStatus.OK);
+			return new ResponseEntity<>(liquidacionResponse, HttpStatus.OK);
 		} catch (RestClientResponseException e) {
 			log.error("Error solicitudRUERadicacion {},{}", e.getLocalizedMessage(), e.getResponseBodyAsString());
 			return new ResponseEntity<>(null, HttpStatus.CONFLICT);
@@ -678,6 +677,7 @@ public class ClienteRueServiceImpl implements IClienteRue {
 				liqDetalle.setValor_activos_sin_ajustes(Integer.valueOf(dto.getValorActivosSinAjustes().toString()));
 				liqDetalle.setValor_base(Integer.valueOf(dto.getValorBase().toString()));
 				liqDetalle.setValor_liquidacion(Integer.valueOf(dto.getValorLiquidacion().toString()));
+				liqDetalle.setIndicador_renovacion(dto.getIndicadorRenovacion() != null ? dto.getIndicadorRenovacion() : "N");
 				liquidacionDetalleResponse.add(liqDetalle);
 			}
 			radicacionInfoResponse.setServicios(liquidacionDetalleResponse);
@@ -692,7 +692,7 @@ public class ClienteRueServiceImpl implements IClienteRue {
 			radicacionInfoResponse.setCodigo_servicio_radicar(response.getCodigoServicioRadicar());
 			radicacionInfoResponse.setNombre_registrado(response.getNombreRegistrado());
 			radicacionInfoResponse.setClase_identificacion(response.getClaseIdentificacion());
-			radicacionInfoResponse.setNumero_identificacion(response.getClaseIdentificacion());
+			radicacionInfoResponse.setNumero_identificacion(response.getNumeroIdentificacion());
 			radicacionInfoResponse.setDigito_verificacion(response.getDigitoVerificacion());
 			radicacionInfoResponse.setEstado_transaccion(response.getEstadoTransaccion());
 			radicacionInfoResponse.setNombre_pagador(response.getNombrePagador());
@@ -701,10 +701,20 @@ public class ClienteRueServiceImpl implements IClienteRue {
 			radicacionInfoResponse.setReferencia_operacion(response.getReferenciaOperacion());
 			radicacionInfoResponse.setTotal_pagado(response.getTotalPagado());
 			radicacionInfoResponse.setForma_pago(response.getFormaPago());
-			radicacionInfoResponse.setNumero_unico_consulta(response.getNumeroUnicoConsulta());
+			radicacionInfoResponse.setNumero_unico_consulta(response.getNumeroUnicoConsulta() != null ? response.getNumeroUnicoConsulta() : "");
 			radicacionInfoResponse.setEstado(response.getEstado());
 			radicacionInfoResponse.setEmpleados(response.getEmpleados());
 			radicacionInfoResponse.setIndicador_beneficio(response.getIndicadorBeneficio());
+			radicacionInfoResponse.setFecha_generacion("");
+			radicacionInfoResponse.setHora_generacion("");
+			radicacionInfoResponse.setCaracteres_por_linea("0");
+			radicacionInfoResponse.setFirma_digital("");
+			radicacionInfoResponse.setTexto_certificado("");
+			radicacionInfoResponse.setCodigo_error(response.getCodigoError());
+			radicacionInfoResponse.setMensaje_error(response.getMensajeError());
+			radicacionInfoResponse.setFecha_respuesta(response.getFechaRespuesta());
+			radicacionInfoResponse.setHora_respuesta(response.getHoraRespuesta());
+			
 
 		return radicacionInfoResponse;
 	}

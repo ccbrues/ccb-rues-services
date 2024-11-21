@@ -29,8 +29,8 @@ public class RadicacionInfoResponse implements Serializable{
     public String origen_documento;
     public String fecha_documento;
     public String fecha_pago;
-    public String referencia_operacion;
     public String numero_factura;
+    public String referencia_operacion;    
     public BigDecimal total_pagado;
     public String forma_pago;
     public String numero_unico_consulta;    
@@ -38,6 +38,16 @@ public class RadicacionInfoResponse implements Serializable{
     public Integer empleados;
     public Integer indicador_beneficio;
     public ArrayList<LiquidacionDetalleResponse> servicios;
+    public String codigo_error;
+    public String mensaje_error;
+    public String fecha_respuesta;
+    public String hora_respuesta;
+    public String fecha_generacion;
+    public String hora_generacion;
+    public String caracteres_por_linea;
+    public String firma_digital;
+    public String texto_certificado;
+    
 
 	/**
 	 * 
