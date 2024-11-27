@@ -16,8 +16,9 @@ public class RadicarProponenteInfoDTO implements Serializable{
 
 	public String numero_interno;
     public String usuario;
-    public int codigo_camara_proponente;
+    public String codigo_camara_proponente;
     public String inscripcion_proponente;
+    public String codigo_camara_matricula;
     public String matricula;
     public String razon_social;
     public String nit;
@@ -31,12 +32,12 @@ public class RadicarProponenteInfoDTO implements Serializable{
     public String digito_verificacion;
     public String nacionalidad;
     public String autorizacion_datos;
+    public String codigo_organizacion_juridica;
     public String municipio_comercial;
     public String direccion_comercial;
     public String telefono_comercial;
     public Object telefono_comercial2;
     public Object telefono_comercial3;
-    public Object fax_comercial;
     public Object apartado_aereo_comercial;
     public String correo_electronico_comercial;
     public String municipio_fiscal;
@@ -44,24 +45,42 @@ public class RadicarProponenteInfoDTO implements Serializable{
     public String telefono_fiscal;
     public Object telefono_fiscal2;
     public Object telefono_fiscal3;
-    public Object fax_fiscal;
     public Object apartado_aereo_fiscal;
     public String correo_electronico;
     public String codigo_estado_proponente;
     public String fecha_inscripcion;
     public String fecha_renovacion;
     public String fecha_cancelacion;
-    public String multas;
-    public String sanciones;
+    public String tipo_documento_personeria_juridica;
+    public String numero_documento_personeria_juridica;
+    public String fecha_documento_personeria_juridica;
+    public String origen_documento_personeria_juridica;
+    public String fecha_constitucion;
+    public String fecha_vencimiento;
+    public String ubicacion_comercial;
+    public String barrio_comercial;
+    public String zona_comercial;
+    public String direccion_notificacion;
+    public String barrio_notificacion;
+    public String municipio_notificacion;
+    public String zona_notificacion;
+    public String tipo_sede;
     public String codigo_tamano_empresa;
     public String facultades;
-    @JsonProperty("InformacionFinanciera") 
-    public InformacionFinancieraInfoDTO informacionFinanciera;
-    @JsonProperty("RepresentatesLegales") 
+    
+    @JsonProperty("representacion_legal") 
     public ArrayList<RepresentatesLegalesInfoDTO> representatesLegales;
-    @JsonProperty("EmpresarialSituacionesControl") 
-    public ArrayList<SituacionesControlInfoDTO> empresarialSituacionesControl;
-    @JsonProperty("Experiencia") 
+    
+    @JsonProperty("situaciones_control") 
+    public ArrayList<SituacionesControlRUPDto> situacionesControl;
+    
+    @JsonProperty("informacion_financiera") 
+    public InformacionFinancieraInfoDTO informacionFinanciera;
+    
+    @JsonProperty("clasificacion_unspsc")
+    public ArrayList<String> clasificacion_unspsc;
+    
+    @JsonProperty("experiencia") 
     public ArrayList<ExperienciaInfoDTO> experiencia;
     
     /**
