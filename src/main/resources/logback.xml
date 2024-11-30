@@ -11,12 +11,13 @@
 	<springProfile name="prod">
 		<property name="entorno" value="prod"></property>
 	</springProfile>
+	<property name="versionArtifact" value="%X{version-artifact}"></property>
 
 	<appender name="STDOUT"
 		class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level)
-				%green(${nombre}) %yellow(${entorno}) %magenta([%thread]) ${entorno}
+				%green(${nombre}) ${versionArtifact} %yellow(${entorno}) %magenta([%thread]) ${entorno}
 				%logger{36}.%M
 				%msg%n</pattern>
 		</encoder>
@@ -33,7 +34,7 @@
 		</rollingPolicy>
 		<encoder>
 			<pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight(%-5level)
-				%green(${nombre}) %yellow(${entorno}) %magenta([%thread]) ${entorno}
+				%green(${nombre}) ${versionArtifact} %yellow(${entorno}) %magenta([%thread]) ${entorno}
 				%logger{36}.%M
 				%msg%n</pattern>
 		</encoder>
