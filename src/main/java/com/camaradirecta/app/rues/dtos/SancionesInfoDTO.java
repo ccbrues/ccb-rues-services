@@ -11,34 +11,34 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SancionesInfoDTO implements Serializable {
 
-	public String numero_interno;
-	public String usuario;
-	public String cod_indicador_envio;
-	public String nit_proponente;
-	public String dv_proponente;
-	public String nit_entidad;
-	public String dv_entidad;
-	public String municipio_entidad;
-	public String numero_contrato;
-	public String nombre_entidad;
-	public String nombre_proponente;
-	public String seccional_entidad;
-	public String numero_acto_administrativo;
-	public String fecha_acto_administrativo;
-	public String numero_acto_ejecutoria;
-	public String fecha_ejecutoria;
-	public String descripcion_sancion;
-	public String vigencia_sancion;
-	public String fundamento_legal;
-	public String condicion_incumplimiento;
-	public String cod_estado;
-	public String codigo_camara;
-	public String codigo_libro_registro;
-	public String numero_inscripcion_libro;
-	public String fecha_inscripcion_camara;
-	public String numero_contrato_secop;
-	public int numero_radicacion_rue;
-	public String codigo_error;
+	private String numero_interno;
+	private String usuario;
+	private String cod_indicador_envio;
+	private String nit_proponente;
+	private String dv_proponente;
+	private String nit_entidad;
+	private String dv_entidad;
+	private String municipio_entidad;
+	private String numero_contrato;
+	private String nombre_entidad;
+	private String nombre_proponente;
+	private String seccional_entidad;
+	private String numero_acto_administrativo;
+	private String fecha_acto_administrativo;
+	private String numero_acto_ejecutoria;
+	private String fecha_ejecutoria;
+	private String descripcion_sancion;
+	private String vigencia_sancion;
+	private String fundamento_legal;
+	private String condicion_incumplimiento;
+	private String cod_estado;
+	private String codigo_camara;
+	private String codigo_libro_registro;
+	private String numero_inscripcion_libro;
+	private String fecha_inscripcion_camara;
+	private String numero_contrato_secop;
+	private int numero_radicacion_rue;
+	private String codigo_error;
 
 	/**
 	 * 

@@ -13,9 +13,15 @@ import org.springframework.web.client.RestTemplate;
 import com.camaradirecta.app.rues.dtos.ContratoInfoDTO;
 import com.camaradirecta.app.rues.dtos.HistoricoProponenteInfoDTO;
 import com.camaradirecta.app.rues.dtos.MultaInfoDTO;
+import com.camaradirecta.app.rues.dtos.ProponenteExperienciaDTO;
+import com.camaradirecta.app.rues.dtos.ProponenteKardexDTO;
+import com.camaradirecta.app.rues.dtos.ProponenteSancionesDTO;
 import com.camaradirecta.app.rues.dtos.ResponseDto;
 import com.camaradirecta.app.rues.dtos.SancionesInfoDTO;
 import com.camaradirecta.app.rues.exceptions.ProcessException;
+import com.camaradirecta.app.rues.response.ActualizarProponenteExperienciaResponse;
+import com.camaradirecta.app.rues.response.ActualizarProponenteKardexResponse;
+import com.camaradirecta.app.rues.response.ActualizarProponenteSancionesResponse;
 import com.camaradirecta.app.rues.response.ContratoInfoResponse;
 import com.camaradirecta.app.rues.response.HistoricoProponenteInfoResponse;
 import com.camaradirecta.app.rues.response.MultaInfoResponse;
@@ -48,6 +54,15 @@ public class RR31NServiceImpl implements IRR31N{
 	
 	@Value("${com.camaradirecta.app.rues.RR31N.url-historico-proponente}")
 	private String urlHistoricoProponente;
+	
+	@Value("${com.camaradirecta.app.rues.RR31N.url-actualizar-experiencia}")
+	private String urlActualizarExperiencia;
+	
+	@Value("${com.camaradirecta.app.rues.RR31N.url-actualizar-kardex}")
+	private String urlActualizarKardex;
+	
+	@Value("${com.camaradirecta.app.rues.RR31N.url-actualizar-san-dis}")
+	private String urlActualizarSanciones;
 	
 	@NonNull
 	RestTemplate restTemplate = new RestTemplate();
@@ -85,7 +100,7 @@ public class RR31NServiceImpl implements IRR31N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> reporteMultas(MultaInfoDTO multaInfoDTO) {
-		log.info("Inicio metodo reporteMultas {}", multaInfoDTO.numero_interno);
+		log.info("Inicio metodo reporteMultas {}", multaInfoDTO.getNumero_interno());
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
@@ -112,7 +127,7 @@ public class RR31NServiceImpl implements IRR31N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> reporteSanciones(SancionesInfoDTO sancionesInfoDTO) {
-		log.info("Inicio metodo reporteMultas {}", sancionesInfoDTO.numero_interno);
+		log.info("Inicio metodo reporteMultas {}", sancionesInfoDTO.getNumero_interno());
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
@@ -139,7 +154,7 @@ public class RR31NServiceImpl implements IRR31N{
 	@Override
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity<ResponseDto> consultaHistoriaProponente(HistoricoProponenteInfoDTO historicoProponenteInfoDTO) {
-		log.info("Inicio metodo consultaHistoriaProponente {}", historicoProponenteInfoDTO.numero_interno);
+		log.info("Inicio metodo consultaHistoriaProponente {}", historicoProponenteInfoDTO.getNumero_interno());
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.add(Constantes.CONTENTTYPE, strContenttype);
@@ -162,6 +177,87 @@ public class RR31NServiceImpl implements IRR31N{
 			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
+	public ResponseEntity<ResponseDto> actualizarExperiencia(ProponenteExperienciaDTO proponenteExperienciaDTO) {
+		log.info("Inicio metodo actualizarExperiencia {}", proponenteExperienciaDTO.getNumero_interno());
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.add(Constantes.CONTENTTYPE, strContenttype);
+			headers.set(Constantes.AUTHORIZATION, this.getToken());
+			HttpEntity<ProponenteExperienciaDTO> httpEntity = new HttpEntity<>(proponenteExperienciaDTO, headers);
+			ResponseGeneral resp = restTemplate.postForObject(urlActualizarExperiencia, httpEntity, ResponseGeneral.class);
+			ObjectMapper mapper = new ObjectMapper();
+			ActualizarProponenteExperienciaResponse actualizarExperienciaResponse = mapper.convertValue(resp.getRespuesta(), ActualizarProponenteExperienciaResponse.class);
+			log.info("Fin metodo actualizarExperiencia {}", mapper.writeValueAsString(actualizarExperienciaResponse));
+			return new ResponseEntity<>(ResponseDto.builder().response(actualizarExperienciaResponse).success(true)
+					.message(HttpStatus.OK.name()).code(HttpStatus.OK.value()).build(), HttpStatus.OK);
+		}catch (RestClientResponseException e) {
+			log.error("Error actualizarExperiencia {},{}", e.getLocalizedMessage(), e.getResponseBodyAsString());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()) , HttpStatus.CONFLICT);
+		} catch (RestClientException e) {
+			log.error("Error actualizarExperiencia {}", e.getLocalizedMessage());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			log.error("Error actualizarExperiencia {} ", e.getLocalizedMessage());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
+	public ResponseEntity<ResponseDto> actualizarKardex(ProponenteKardexDTO proponenteKardexDTO) {
+		log.info("Inicio metodo actualizarKardex {}", proponenteKardexDTO.getNumero_interno());
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.add(Constantes.CONTENTTYPE, strContenttype);
+			headers.set(Constantes.AUTHORIZATION, this.getToken());
+			HttpEntity<ProponenteKardexDTO> httpEntity = new HttpEntity<>(proponenteKardexDTO, headers);
+			ResponseGeneral resp = restTemplate.postForObject(urlActualizarKardex, httpEntity, ResponseGeneral.class);
+			ObjectMapper mapper = new ObjectMapper();
+			ActualizarProponenteKardexResponse actualizarKardexResponse = mapper.convertValue(resp.getRespuesta(), ActualizarProponenteKardexResponse.class);
+			log.info("Fin metodo actualizarKardex {}", mapper.writeValueAsString(actualizarKardexResponse));
+			return new ResponseEntity<>(ResponseDto.builder().response(actualizarKardexResponse).success(true)
+					.message(HttpStatus.OK.name()).code(HttpStatus.OK.value()).build(), HttpStatus.OK);
+		}catch (RestClientResponseException e) {
+			log.error("Error actualizarKardex {},{}", e.getLocalizedMessage(), e.getResponseBodyAsString());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()) , HttpStatus.CONFLICT);
+		} catch (RestClientException e) {
+			log.error("Error actualizarKardex {}", e.getLocalizedMessage());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			log.error("Error actualizarKardex {} ", e.getLocalizedMessage());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
+	public ResponseEntity<ResponseDto> actualizarSanciones(ProponenteSancionesDTO proponenteSancionesDTO) {
+		log.info("Inicio metodo actualizarSanciones {}", proponenteSancionesDTO.getNumero_interno());
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.add(Constantes.CONTENTTYPE, strContenttype);
+			headers.set(Constantes.AUTHORIZATION, this.getToken());
+			HttpEntity<ProponenteSancionesDTO> httpEntity = new HttpEntity<>(proponenteSancionesDTO, headers);
+			ResponseGeneral resp = restTemplate.postForObject(urlActualizarSanciones, httpEntity, ResponseGeneral.class);
+			ObjectMapper mapper = new ObjectMapper();
+			ActualizarProponenteSancionesResponse actualizarSancionesResponse = mapper.convertValue(resp.getRespuesta(), ActualizarProponenteSancionesResponse.class);
+			log.info("Fin metodo actualizarSanciones {}", mapper.writeValueAsString(actualizarSancionesResponse));
+			return new ResponseEntity<>(ResponseDto.builder().response(actualizarSancionesResponse).success(true)
+					.message(HttpStatus.OK.name()).code(HttpStatus.OK.value()).build(), HttpStatus.OK);
+		}catch (RestClientResponseException e) {
+			log.error("Error actualizarSanciones {},{}", e.getLocalizedMessage(), e.getResponseBodyAsString());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()) , HttpStatus.CONFLICT);
+		} catch (RestClientException e) {
+			log.error("Error actualizarSanciones {}", e.getLocalizedMessage());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			log.error("Error actualizarSanciones {} ", e.getLocalizedMessage());
+			return new ResponseEntity<>(new ResponseDto(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 	
 	/**
@@ -179,6 +275,8 @@ public class RR31NServiceImpl implements IRR31N{
 			throw new ProcessException(Constantes.ERROR+e.getMessage());
 		}
 	}
+
+
 
 
 }

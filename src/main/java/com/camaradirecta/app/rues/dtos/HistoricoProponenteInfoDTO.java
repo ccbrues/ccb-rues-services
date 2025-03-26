@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class HistoricoProponenteInfoDTO implements Serializable{
 
-	public String numero_interno;
-    public String usuario;
-    public String nit_proponente;
-    public String dv_proponente;
+	private String numero_interno;
+    private String usuario;
+    private String nit_proponente;
+    private String dv_proponente;
     
     /**
 	 * 

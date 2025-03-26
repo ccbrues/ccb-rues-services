@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.camaradirecta.app.rues.dtos.ContratoInfoDTO;
 import com.camaradirecta.app.rues.dtos.HistoricoProponenteInfoDTO;
 import com.camaradirecta.app.rues.dtos.MultaInfoDTO;
+import com.camaradirecta.app.rues.dtos.ProponenteExperienciaDTO;
+import com.camaradirecta.app.rues.dtos.ProponenteKardexDTO;
+import com.camaradirecta.app.rues.dtos.ProponenteSancionesDTO;
 import com.camaradirecta.app.rues.dtos.ResponseDto;
 import com.camaradirecta.app.rues.dtos.SancionesInfoDTO;
 import com.camaradirecta.app.rues.services.IRR31N;
@@ -45,6 +48,21 @@ public class RR31NController {
 	@PostMapping(path = "/consultaHistoriaProponente")
 	public ResponseEntity<ResponseDto> consultaHistoriaProponente(@RequestBody HistoricoProponenteInfoDTO historicoProponenteInfoDTO) {
 		return this.serviceIRR31N.consultaHistoriaProponente(historicoProponenteInfoDTO);
+	}
+	
+	@PostMapping(path = "/actualizarProponenteExperiencia")
+	public ResponseEntity<ResponseDto> actualizarExperiencia(@RequestBody ProponenteExperienciaDTO proponenteExperienciaDTO) {
+		return this.serviceIRR31N.actualizarExperiencia(proponenteExperienciaDTO);
+	}
+	
+	@PostMapping(path = "/actualizarProponenteKardex")
+	public ResponseEntity<ResponseDto> actualizarKardex(@RequestBody ProponenteKardexDTO proponenteKardexDTO) {
+		return this.serviceIRR31N.actualizarKardex(proponenteKardexDTO);
+	}
+	
+	@PostMapping(path = "/actualizarProponenteSanciones")
+	public ResponseEntity<ResponseDto> actualizarSanciones(@RequestBody ProponenteSancionesDTO proponenteSancionesDTO) {
+		return this.serviceIRR31N.actualizarSanciones(proponenteSancionesDTO);
 	}
 
 }

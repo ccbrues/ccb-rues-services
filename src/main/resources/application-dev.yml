@@ -28,6 +28,9 @@ com:
           url-reporte-multas: https://pruebasruesapi.rues.org.co/api/Proponente/ReporteMultas
           url-reporte-sanciones: https://pruebasruesapi.rues.org.co/api/Proponente/ReporteSanciones
           url-historico-proponente: https://pruebasruesapi.rues.org.co/api/Proponente/v2/consultaHistoriaProponente
+          url-actualizar-experiencia: https://pruebasruesapi.rues.org.co/api/Proponente/ActualizarProponenteExperiencia
+          url-actualizar-kardex: https://pruebasruesapi.rues.org.co/api/Proponente/ActualizarProponenteKardex
+          url-actualizar-san-dis: https://pruebasruesapi.rues.org.co/api/Proponente/ActualizarProponenteSanDis
         RR09N:
           url-proponente-nit: https://pruebasruesapi.rues.org.co/api/Proponente/ConsultaProponenteNit
           url-radicar-noticia-proponente: https://pruebasruesapi.rues.org.co/api/Proponente/radicarNoticiasProponente
