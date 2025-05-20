@@ -83,6 +83,9 @@ public class RadicarProponenteInfoDTO implements Serializable{
     @JsonProperty("experiencia") 
     public ArrayList<ExperienciaInfoDTO> experiencia;
     
+    public String codigo_error;
+    
+    public String mensaje_error;
     /**
 	 * 
 	 */

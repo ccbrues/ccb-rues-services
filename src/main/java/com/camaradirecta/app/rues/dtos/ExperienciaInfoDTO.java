@@ -15,9 +15,10 @@ public class ExperienciaInfoDTO implements Serializable{
     public String celebrado_por;
     public String nombre_contratista;
     public String nombre_contratante;
+    public String fecha_ejecucion;
     public double valor_smmlv;
     public int porcentaje_participacion;
-    public String clasificaciones;
+    public String codigos_unspsc;
     
     /**
 	 * 
